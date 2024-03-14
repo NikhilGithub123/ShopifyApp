@@ -1,0 +1,43 @@
+<style>
+  .test {
+    display: block;
+  }
+</style>
+
+{% assign avg_rating = block.settings.product.metafields.demo.avg_rating.value | round %}
+<span style="color:{{ block.settings.colour }}">
+  {% render 'stars', rating: avg_rating %}
+</span>
+  {% if avg_rating >= 4 %}
+<br>
+<img src="{{ " thumbs-up.png" | asset_img_url: '15x' }}" height="15" width="15" loading="lazy">
+{{ 'ratings.home.recommendationText' | t }}
+{% endif %}
+
+
+
+<script>
+  /*
+  document.addEventListener("DOMContentLoaded", function () {
+    const cardInners = document.querySelectorAll(".card__inner");
+    cardInners.forEach(cardInner => {
+      const cardContent = cardInner.querySelector(".card__content");
+      const newDiv = document.getElementById("test");
+
+      //  newDiv.innerHTML =  "<p>NIKHIL</p>";
+      cardContent.appendChild(newDiv);
+    });
+  });
+  */
+</script>
+
+{% schema %}
+{
+"name": "Star Rating",
+"target": "section",
+"settings": [
+{ "type": "product", "id": "product", "label": "product", "autofill": true },
+{ "type": "color", "id": "colour", "label": "Star Colour", "default": "#ff0000" }
+]
+}
+{% endschema %}
