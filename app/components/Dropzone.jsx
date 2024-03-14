@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import { DropZone, BlockStack, Thumbnail, Text } from '@shopify/polaris';
-import { NoteIcon } from '@shopify/polaris-icons';
 
 export function DropZoneExample() {
   const [files, setFiles] = useState([]);
@@ -23,9 +22,8 @@ export function DropZoneExample() {
               size="small"
               alt={file.name}
               source={
-                validImageTypes.includes(file.type)
-                  ? window.URL.createObjectURL(file)
-                  : NoteIcon
+
+                  window.URL.createObjectURL(file)
               }
             />
             <div>
