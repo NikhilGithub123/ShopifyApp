@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 async function decodeJson() {
   try {
     // Make an HTTP GET request to the server-side endpoint
-    const response = await fetch('http://localhost:3000/api/data');
+    const response = await fetch('https://clownfish-app-tex7v.ondigitalocean.app/api/data');
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
