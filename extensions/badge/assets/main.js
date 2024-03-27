@@ -1,11 +1,24 @@
+
 document.addEventListener('DOMContentLoaded', function () {
   bdgs_finditems();
+  logMessage();
 });
 
+async function logMessage()
+{
+  try{
+    const response = await fetch('https://auction-blow-missouri-welcome.trycloudflare.com/app/api')
+    const obj = await response.json();
+    console.log("Response recieved from App", obj);
+  }
+  catch (error) {    
+    console.error('There was a problem in logMessage', error);
+  }
+}
 async function decodeJson() {
   try {
     // Make an HTTP GET request to the server-side endpoint
-    const response = await fetch('https://clownfish-app-tex7v.ondigitalocean.app/api/data');
+    const response = await fetch('https://auction-blow-missouri-welcome.trycloudflare.com/app/api');
 
     if (!response.ok) {
       throw new Error('Network response was not ok');
